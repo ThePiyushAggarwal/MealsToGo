@@ -1,4 +1,5 @@
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
+import React from 'react';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import {
   StyleSheet,
   Text,
@@ -6,9 +7,9 @@ import {
   SafeAreaView,
   Platform,
   StatusBar,
-} from 'react-native'
+} from 'react-native';
 
-const isAndroid = Platform.OS === 'android'
+const isAndroid = Platform.OS === 'android';
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
       </SafeAreaView>
       <ExpoStatusBar style="auto" />
     </>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -34,10 +35,10 @@ const styles = StyleSheet.create({
   },
   first: {
     padding: 16,
-    backgroundColor: 'green',
+    backgroundColor: 'lightgreen',
   },
   second: {
     backgroundColor: 'pink',
     flex: 1,
   },
-})
+});
