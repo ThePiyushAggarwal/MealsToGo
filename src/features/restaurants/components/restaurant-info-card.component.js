@@ -1,7 +1,31 @@
 import React from 'react';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Text } from 'react-native';
+import { Card } from 'react-native-paper';
+import styled from 'styled-components/native';
 
-const LeftContent = (props) => <Avatar.Icon {...props} icon="folder" />;
+const RestaurantCard = styled(Card)`
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: 0 ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+const Info = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+`;
+
+const Title = styled.Text`
+  font-family: ${(props) => props.theme.fonts.heading};
+  font-size: ${(props) => props.theme.fontSizes.body};
+  color: ${(props) => props.theme.colors.ui.primary};
+`;
+
+const Address = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+`;
 
 const RestaurantsInfoCard = ({ restaurant = {} }) => {
   const {
@@ -10,25 +34,20 @@ const RestaurantsInfoCard = ({ restaurant = {} }) => {
     photos = [
       'https://cdn.pixabay.com/photo/2014/11/05/15/57/salmon-518032_960_720.jpg',
     ],
-    //   address = '100 random street',
+    address = '100 random street',
     //   isOpenNow = true,
     //   rating = 4,
     //   isClosedTemporarily,
   } = restaurant;
 
   return (
-    <Card>
-      <Card.Title title={name} subtitle="Restaurant" left={LeftContent} />
-      <Card.Content>
+    <RestaurantCard>
+      <RestaurantCardCover source={{ uri: photos[0] }} />
+      <Info>
         <Title>{name}</Title>
-        <Paragraph>Card content</Paragraph>
-      </Card.Content>
-      <Card.Cover source={{ uri: photos[0] }} />
-      <Card.Actions>
-        <Button>Cancel</Button>
-        <Button>Ok</Button>
-      </Card.Actions>
-    </Card>
+        <Address>{address}</Address>
+      </Info>
+    </RestaurantCard>
   );
 };
 
