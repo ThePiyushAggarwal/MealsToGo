@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
@@ -48,10 +49,6 @@ const Icon = styled.Image`
   height: 20px;
 `;
 
-const PaddingSpace = styled.View`
-  padding-left: 16px;
-`;
-
 const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.caption};
@@ -81,17 +78,17 @@ const RestaurantsInfoCard = ({ restaurant = {} }) => {
         <Title>{name}</Title>
         <RatingStateContainer>
           <Rating>
-            {ratingsArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+            {ratingsArray.map((e, i) => (
+              <SvgXml xml={star} width={20} height={20} key={i} />
             ))}
           </Rating>
           <RestaurantState>
             {isClosedTemporarily && (
               <ClosedLabel>CLOSED TEMPORARILY</ClosedLabel>
             )}
-            <PaddingSpace />
+            <Spacer variant="left.large" />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <PaddingSpace />
+            <Spacer variant="left.large" />
             <Icon source={{ uri: icon }} />
           </RestaurantState>
         </RatingStateContainer>
