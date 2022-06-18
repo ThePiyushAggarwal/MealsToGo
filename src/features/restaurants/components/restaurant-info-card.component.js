@@ -1,58 +1,19 @@
 import React from 'react';
-import { Card } from 'react-native-paper';
-import styled from 'styled-components/native';
 import { SvgXml } from 'react-native-svg';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacer.component';
-
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: 0 ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.body};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const RatingStateContainer = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding: ${(props) => props.theme.space[2]} 0;
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-`;
-
-const RestaurantState = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const ClosedLabel = styled.Text`
-  color: red;
-`;
-
-const Icon = styled.Image`
-  width: 20px;
-  height: 20px;
-`;
-
-const Address = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
+import { Text } from '../../../components/typography/text.component';
+import {
+  Address,
+  Icon,
+  Info,
+  Rating,
+  RatingStateContainer,
+  RestaurantCard,
+  RestaurantCardCover,
+  RestaurantState,
+} from './restaurant-info-card.styles';
 
 // Component
 const RestaurantsInfoCard = ({ restaurant = {} }) => {
