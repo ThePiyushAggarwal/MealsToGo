@@ -75,16 +75,16 @@ const RestaurantsInfoCard = ({ restaurant = {} }) => {
     <RestaurantCard>
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <RatingStateContainer>
           <Rating>
-            {ratingsArray.map((e, i) => (
+            {ratingsArray.map((_, i) => (
               <SvgXml xml={star} width={20} height={20} key={i} />
             ))}
           </Rating>
           <RestaurantState>
             {isClosedTemporarily && (
-              <ClosedLabel>CLOSED TEMPORARILY</ClosedLabel>
+              <Text variant="error">CLOSED TEMPORARILY</Text>
             )}
             <Spacer position="left" size="large">
               {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
