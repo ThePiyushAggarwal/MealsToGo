@@ -86,10 +86,12 @@ const RestaurantsInfoCard = ({ restaurant = {} }) => {
             {isClosedTemporarily && (
               <ClosedLabel>CLOSED TEMPORARILY</ClosedLabel>
             )}
-            <Spacer variant="left.large" />
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Spacer variant="left.large" />
-            <Icon source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Icon source={{ uri: icon }} />
+            </Spacer>
           </RestaurantState>
         </RatingStateContainer>
         <Address>{address}</Address>
