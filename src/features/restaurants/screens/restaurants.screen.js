@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { Platform, StatusBar } from 'react-native';
+import { FlatList, Platform, StatusBar } from 'react-native';
 import SearchBar from '../../../components/SearchBar';
 import RestaurantsInfoCard from '../components/restaurant-info-card.component';
 
@@ -17,19 +17,18 @@ const SearchContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-const RestaurantCardsContainer = styled.View`
-  flex: 1;
-  background-color: ${(props) => props.theme.colors.bg.secondary};
-`;
-
 const RestaurantsScreen = () => (
   <SafeArea>
     <SearchContainer>
       <SearchBar />
     </SearchContainer>
-    <RestaurantCardsContainer>
-      <RestaurantsInfoCard />
-    </RestaurantCardsContainer>
+
+    <FlatList
+      data={[{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }]}
+      renderItem={() => <RestaurantsInfoCard />}
+      keyExtractor={(item) => item.id}
+      // contentContainerStyle={{ padding: 16 }}
+    />
   </SafeArea>
 );
 
