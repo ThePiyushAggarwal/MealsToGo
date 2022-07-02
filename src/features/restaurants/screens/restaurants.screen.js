@@ -10,8 +10,7 @@ const SearchContainer = styled.View`
 `;
 
 const RestaurantsScreen = () => {
-  const restaurantsContext = useContext(RestaurantsContext);
-  console.log(restaurantsContext);
+  const { restaurants, isLoading, error } = useContext(RestaurantsContext);
   return (
     <>
       <SearchContainer>
@@ -19,9 +18,9 @@ const RestaurantsScreen = () => {
       </SearchContainer>
 
       <FlatList
-        data={restaurantsContext.restaurants}
-        renderItem={() => <RestaurantsInfoCard />}
-        keyExtractor={(item) => item}
+        data={restaurants}
+        renderItem={({ item }) => <RestaurantsInfoCard restaurant={item} />}
+        keyExtractor={(item) => item.name}
       />
     </>
   );
