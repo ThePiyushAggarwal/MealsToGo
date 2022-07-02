@@ -15,8 +15,6 @@ import { Text } from 'react-native';
 import SafeAreaComponent from './src/components/utilities/SafeArea.Component';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-import { restaurantsRequest } from './src/services/restaurants/restaurants.service';
-
 const Tab = createBottomTabNavigator();
 
 const SettingsScreen = () => <Text>Haha</Text>;
