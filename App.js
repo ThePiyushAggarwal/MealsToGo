@@ -15,6 +15,8 @@ import { Text } from 'react-native';
 import SafeAreaComponent from './src/components/utilities/SafeArea.Component';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+import { RestaurantsProvider } from './src/services/restaurants/restaurants.context';
+
 const Tab = createBottomTabNavigator();
 
 const SettingsScreen = () => <Text>Haha</Text>;
@@ -52,15 +54,17 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <SafeAreaComponent>
-          <NavigationContainer>
-            <Tab.Navigator screenOptions={screenOptions}>
-              <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-              <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Settings" component={SettingsScreen} />
-            </Tab.Navigator>
-          </NavigationContainer>
-        </SafeAreaComponent>
+        <RestaurantsProvider>
+          <SafeAreaComponent>
+            <NavigationContainer>
+              <Tab.Navigator screenOptions={screenOptions}>
+                <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
+                <Tab.Screen name="Map" component={MapScreen} />
+                <Tab.Screen name="Settings" component={SettingsScreen} />
+              </Tab.Navigator>
+            </NavigationContainer>
+          </SafeAreaComponent>
+        </RestaurantsProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
